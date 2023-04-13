@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Hangfire" Version="1.7.34" />
+    <PackageReference Include="Hangfire.PostgreSql" Version="1.19.12" />
+  </ItemGroup>
+
 </Project>
