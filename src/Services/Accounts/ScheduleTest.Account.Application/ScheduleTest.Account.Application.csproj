@@ -9,8 +9,4 @@
     <ItemGroup>
       <ProjectReference Include="..\..\..\Infrastructure\ScheduleTest.Infrastructure\ScheduleTest.Infrastructure.csproj" />
     </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Features\Accounts" />
-    </ItemGroup>
 </Project>
