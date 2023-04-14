@@ -1,7 +1,6 @@
-﻿using Hangfire;
-using ScheduleTest.Account.Application;
-using ScheduleTest.Account.Application.Features.Accounts;
-using ScheduleTest.Account.Application.Models;
+﻿using ScheduleTest.Order.Application;
+using ScheduleTest.Order.Application.Features.Orders;
+using ScheduleTest.Order.Application.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,8 +18,6 @@ if (app.Environment.IsEnvironment("Local"))
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseHangfireDashboard();
 
 var summaries = new[]
 {
@@ -42,13 +39,12 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast")
 .WithOpenApi();
 
-app.MapPost("/create", (AccountDto account, IAccountService _accountService) =>
+app.MapPost("/addorder", (OrderDto order, IOrderService _orderService) =>
     {
-        var result = _accountService.CreateAccount(account);
+        var result = _orderService.AddOrder(order);
         return Results.Ok("Ok");
-    }).WithName("Create")
+    }).WithName("AddOrder")
     .WithOpenApi();
-
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
