@@ -28,12 +28,12 @@ public class AccountService: IAccountService
             To = account.Email,
         }),JobType.Recurring);
         
-        _job.Create(()=> _mailService.SendEmail(new MailDto
-        {
-            Body = "Deneme",
-            Subject = "Test",
-            To = account.Email,
-        }),JobType.Recurring,"test",Cron.Minutely());
+        // _job.Create(()=> _mailService.SendEmail(new MailDto
+        // {
+        //     Body = "Deneme",
+        //     Subject = "Test",
+        //     To = account.Email,
+        // }),JobType.Recurring,"test",Cron.Minutely());
         
     //    _job.Create<MailService, Task<bool>>(x => x.SendEmail(new MailDto()), "test-01", "* * * *");
         // _job.SendMail(new MailDto
